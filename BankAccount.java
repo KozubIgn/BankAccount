@@ -3,17 +3,28 @@ public class BankAccount {
     private double balance;
     private String customerName;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
+
+public BankAccount(){
+}
+//constructor
+public BankAccount(String number, double balance, String customerName, String email, String phoneNumber){
+this. number = number;
+this.balance = balance;
+this.customerName = customerName;
+this.email = email;
+this.phoneNumber = phoneNumber;
+    }
 
 public void deposit(double depositAmount){
     this.balance += depositAmount;
 }
 public void withdrawal(double withdrawalAmount){
     if(balance - withdrawalAmount < 0){
-        System.out.println("Only " + this.balance +" available.not processed" );
+        System.out.println("Only " + this.balance +" available. Not processed" );
     }else{
         this.balance -=withdrawalAmount;
-        System.out.println("Withdrawal of" + withdrawalAmount + "processed.Remaining balance = " + this.balance);
+        System.out.println("Withdrawal of " + withdrawalAmount + " processed. Remaining balance = " + this.balance);
     }
 }
 
@@ -44,8 +55,12 @@ public String getEmail(){
 public void setPhoneNumber(){
     this.phoneNumber = phoneNumber;
 }
-public int getPhoneNumber(){
+public String getPhoneNumber() {
     return this.phoneNumber;
 }
+//second constructor
+    public BankAccount(String customerName, String email, String phoneNumber) {
+        this("99999",200.55,customerName,email,phoneNumber);
+    }
 
 }
